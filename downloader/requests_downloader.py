@@ -24,8 +24,6 @@ class RequestDownloader(Downloader):
         album_dir_path = pathlib.Path(f'{dir_path}/{album.name}')
         album_dir_path.mkdir(parents=True, exist_ok=True)
 
-        print(f'Downloading album {album.name} to {album_dir_path}')
-
         track_count = 1
         with ThreadPoolExecutor() as executor:
             for track in album.tracks:

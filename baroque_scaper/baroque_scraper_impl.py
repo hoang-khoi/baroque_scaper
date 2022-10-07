@@ -19,6 +19,10 @@ class BaroqueScaperImpl(BaroqueScaper):
 
     def scap(self, dir_path: [str, Path]):
         albums = self.library_scanner.fetch_albums()
+
+        album_count = 1
         for album in albums:
             self.album_scanner.scan_and_fill(album)
+            print(f'Downloading album {album_count}/{len(albums)} {album.name} to {dir_path}')
             self.downloader.download_album(album, dir_path)
+            album_count += 1
