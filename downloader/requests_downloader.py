@@ -1,4 +1,5 @@
 import pathlib
+from concurrent.futures import ThreadPoolExecutor
 from pathlib import Path
 
 import requests
@@ -26,7 +27,8 @@ class RequestDownloader(Downloader):
         print(f'Downloading album {album.name} to {album_dir_path}')
 
         track_count = 1
-        for track in album.tracks:
-            print(f'Downloading {track_count}/{len(album.tracks)}: {track.url}')
-            self.__download_track(track, dir_path=album_dir_path)
-            track_count += 1
+        with ThreadPoolExecutor() as executor:
+            for track in album.tracks:
+                print(f'Downloading {track_count}/{len(album.tracks)}: {track.url}')
+                executor.submit(self.__download_track, track, dir_path=album_dir_path)
+                track_count += 1

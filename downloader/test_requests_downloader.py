@@ -9,7 +9,8 @@ from entity.track import Track
 class TestRequestTrackDownloader(TestCase):
     def setUp(self) -> None:
         self.track = Track(url='http://www.baroquemusic.org/DLower/501BarocophileTr1AlbinoniSinfonia.mp3', name='')
-        self.album = Album(name='Sample Name', url='', tracks=[self.track])
+        self.track2 = Track(url='https://www.baroquemusic.org/DLower/504BachophileTr1Cantata76.mp3', name='')
+        self.album = Album(name='Sample Name', url='', tracks=[self.track, self.track2])
         self.under_test = RequestDownloader()
 
     def test_download_track(self):
