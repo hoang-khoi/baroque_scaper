@@ -4,14 +4,19 @@ __version__ = "0.1.0"
 __license__ = "MIT"
 
 import pathlib
+import sys
 
 from baroque_scaper.baroque_scraper_impl import BaroqueScaperImpl
 
 
 def main():
     """ Main entry point of the app """
+    path = pathlib.Path().absolute()
+    if len(sys.argv) > 1:
+        path = pathlib.Path(sys.argv[1])
+
     baroque_scaper = BaroqueScaperImpl()
-    baroque_scaper.scap(pathlib.Path().absolute())
+    baroque_scaper.scap(path)
 
 
 if __name__ == "__main__":
