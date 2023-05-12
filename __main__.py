@@ -5,6 +5,7 @@ __license__ = "MIT"
 
 import pathlib
 import sys
+import traceback
 
 from baroque_scaper.baroque_scraper_impl import BaroqueScaperImpl
 
@@ -23,5 +24,5 @@ if __name__ == "__main__":
     """ This is executed when run from the command line """
     try:
         main()
-    except Exception as e:
-        print("EXCEPTION " + e)
+    except Exception:
+        traceback.print_exc()
