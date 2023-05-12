@@ -20,6 +20,6 @@ class BeautifulSoupLibraryScanner(AlbumScouter):
             path = a_tag.get('href')
             if path.endswith('Web.html'):
                 full_url = HOME_URL + path
-                albums.append(Album(name=None, url=full_url, tracks=[]))
+                albums.append(Album(name=title, url=full_url, tracks=[]))
 
         return albums

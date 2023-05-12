@@ -15,8 +15,8 @@ def main():
     if len(sys.argv) > 1:
         path = pathlib.Path(sys.argv[1])
 
-    baroque_scaper = BaroqueScaperImpl()
-    baroque_scaper.scap(path)
+    baroque_scraper = BaroqueScaperImpl()
+    baroque_scraper.scrape(path)
 
 
 if __name__ == "__main__":

@@ -4,5 +4,5 @@ from pathlib import Path
 
 class BaroqueScaper(ABC):
     @abstractmethod
-    def scap(self, dir_path: [str, Path]):
+    def scrape(self, dir_path: [str, Path]):
         pass

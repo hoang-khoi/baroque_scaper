@@ -17,7 +17,7 @@ class BaroqueScaperImpl(BaroqueScaper):
         self.album_scanner = album_scanner
         self.downloader = downloader
 
-    def scap(self, dir_path: [str, Path]):
+    def scrape(self, dir_path: [str, Path]):
         albums = self.library_scanner.fetch_albums()
 
         album_count = 1
