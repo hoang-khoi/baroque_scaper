@@ -22,6 +22,11 @@ class RequestDownloader(Downloader):
 
     def download_album(self, album: Album, dir_path: [str, Path]):
         album_dir_path = pathlib.Path(f'{dir_path}/{album.name}')
+
+        if album_dir_path.exists():
+            print(f'{album.name} existed, skipped.')
+            return
+
         album_dir_path.mkdir(parents=True, exist_ok=True)
 
         track_count = 1
