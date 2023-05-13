@@ -19,8 +19,7 @@ class BeautifulSoupAlbumScanner(AlbumScanner):
 
         for a_tag in soup.findAll('a'):
             path = a_tag.get('href')
-            print(f'Path: {path}')
-            if path.endswith('.mp3'):
+            if path is not None and path.endswith('.mp3'):
                 full_url = HOME_URL + path
                 album.tracks.append(Track(name=path, url=full_url))
 

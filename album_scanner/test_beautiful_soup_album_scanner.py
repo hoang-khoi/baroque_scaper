@@ -17,3 +17,13 @@ class TestBeautifulSoupAlbumScanner(TestCase):
 
         self.assertEqual('The Barocophile - A Double Album Special for Baroque-Music-Lovers', album.name)
         self.assertTrue(len(album.tracks) > 0)
+
+    def test_scan_and_fill_sinfonia(self):
+        album = self.under_test.scan_and_fill(album=Album(
+            name='Sinfonia',
+            url='https://www.baroquemusic.org/747Web.html',
+            tracks=[]
+        ))
+
+        for track in album.tracks:
+            print(track)
